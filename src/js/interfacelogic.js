@@ -26,7 +26,7 @@ export function displayPairs(cards) {
   let gameDisplay = $("#game-display");
   let cardsHtml = ``;
   for(let i = 0; i < cards.length; i++) {
-      cardsHtml += `<div class='card'><p class='card-text'>${cards[i]}</p></div>`;
+      cardsHtml += `<div class='card'><p class='card-text hidden'>${cards[i]}</p></div>`;
   }
   return gameDisplay.html(cardsHtml);
 }
@@ -40,20 +40,32 @@ export function pageListener() {
   let numberOfClicks = 0;
   let cardOne = "";
   let cardTwo = "";
-  $("#game-display").on("click", ".card-text", function() {
+  let cardOneElement = "";
+  let cardTwoElement = "";
+  $("#game-display").on("click", ".card", function() {
     numberOfClicks++;
+    let hiddenCardElement = $(this).find(".card-text");
+    // .card-text
+    
     if((numberOfClicks % 2) === 1) {
-      cardOne = $(this).text();
+      hiddenCardElement.removeClass("hidden");
+      cardOneElement = hiddenCardElement;
+      cardOne = hiddenCardElement.text();
       console.log(cardOne);
     } else {
-      cardTwo = $(this).text();
+      hiddenCardElement.removeClass("hidden");
+      cardTwoElement = hiddenCardElement;
+      cardTwo = hiddenCardElement.text();
       if(cardOne === cardTwo) {
         console.log("match");
       } else {
-        console.log("no match");
+        cardOneElement.addClass("hidden");
+        cardTwoElement.addClass("hidden");
+        cardOne = "";
+        cardTwo = "";
+        cardOneElement = "";
+        cardTwoElement = "";
       }
-      cardOne = "";
-      cardTwo = "";
     }
   });
   };
