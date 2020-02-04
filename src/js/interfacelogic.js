@@ -32,27 +32,40 @@ export function displayPairs(cards) {
 }
 
 export function listen() {
-  
-  clicksListen();
+  let clicks = 0;
+  let first = "";
+  let second = "";
+  clicksListen(clicks, first, second);
    }
 
-    export function clicksListen(){
-      let numberOfClicks = 0;
-  let firstCardValue  =  "";
-  let secondCardValue = "";
+    export function clicksListen(clicks, first, second){
+      let numberOfClicks;
+      if(clicks !== 0) {
+        numberOfClicks = clicks;
+      } else {
+        numberOfClicks = 0;
+      }
+      console.log(numberOfClicks);
+    let firstCardValue  =  first;
+    let secondCardValue = second;
       $("#game-display").on("click", ".card > p",function() {
         // numberOfClicks++;
-        if(numberOfClicks === 1) {
+        if((numberOfClicks % 2) === 0) {
+          console.log(firstCardValue);
+          console.log(secondCardValue);
           firstCardValue = $(this).text();
-          console.log(numberOfClicks);
+
+          clicksListen(numberOfClicks, firstCardValue, secondCardValue);
         }});
   
-        $("#game-display").on("click", ".card > p",function() {
+        $("#game-display").on("click", ".card > p",function() {  
           numberOfClicks++;
-          if(numberOfClicks % 2 === 0) {
-            firstCardValue = $(this).text();
+          if((numberOfClicks % 2) === 1) {
+            secondCardValue = $(this).text();
+            if(firstCardValue === secondCardValue) {
+              alert("match");
+            }
             console.log(numberOfClicks);
-            alert("match");
             listen();
           }
         });
