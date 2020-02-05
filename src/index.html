@@ -14,20 +14,20 @@
             <h1>Memory</h1>
             <p class="lead">The game of Memory. Win the game by
                identifying all pairs of cards. Change game difficuly by 
-               entering the number of pairs of cards you want to play with. Games can be played with 2 - 50 pairs of cards.
+               entering the number of pairs of cards you want to play with. Games can be played with 2 - 26 pairs of cards.
             </p>
           </div>
-          <form id="difficulty-input-form">
-            <div id="game-controls">
-
-            </div>
-            <div class="form-group">
-              <label for="difficulty-input">Enter # of card pairs</label>
-              <input type="text" class="form-control" id="difficulty-input">
-            </div>
-              <button id="difficulty-submit" class="btn btn-primary" type='submit'>Create Game</button>
-            </div>
-          </form>
+          <div id="main-content">
+            <form id="difficulty-input-form">
+              <div class="form-group">
+                <label for="difficulty-input">Enter # of card pairs</label>
+                <input type="text" class="form-control" id="difficulty-input">
+                <div id="error"></div>
+              </div>
+                <button id="difficulty-submit" class="btn btn-primary" type='submit'>Create Game</button>
+              </div>
+            </form>
+          </div>
           <div id="game-display">
           </div>
         </div>

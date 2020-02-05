@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export function defineCards(numberOfCardPairs) {
-  let allCards = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+  let allCards = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   let subCards = allCards.slice(0, numberOfCardPairs);
   let doubleCards = subCards.concat(subCards);
 
@@ -22,8 +22,14 @@ export function randomizePairs(selectionArray) {
 }
 
 export function createGameListener() {
-  let inputtedDifficulty = parseInt($("#difficulty-input").val());
-  createGame(inputtedDifficulty);
+  $("#error").html(``);
+  let difficultyInput = $("#difficulty-input");
+  let inputtedDifficulty = parseInt(difficultyInput.val());
+  if(validateDifficultyNumber(inputtedDifficulty)) {
+    difficultyInput.val("");
+    createGame(inputtedDifficulty);
+  }
+  difficultyInput.val("");
 }
 
 export function createGame(inputtedDifficulty) {
@@ -69,4 +75,12 @@ export function cardClickListener() {
       }
     }
   });
+}
+
+export function validateDifficultyNumber(difficultyNumber) {
+  if((difficultyNumber >= 2) && (difficultyNumber <= 26)) {
+    return true;
+  }
+  $("#error").html(`<p id='error-message'>The number must be between 2 and 26</p>`);
+  return false;
 }
