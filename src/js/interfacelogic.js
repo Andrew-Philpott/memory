@@ -17,9 +17,19 @@ export function randomizePairs(selectionArray) {
       let value = Math.floor((Math.random() * (currentSelectionArrayLength-1)));
       newArray.push(selectionArray[value]);
       selectionArray.splice(value,1);
-
   }
   return newArray;
+}
+
+export function createGameListener() {
+    let inputtedDifficulty = parseInt($("#difficulty-input").val());
+    createGame(inputtedDifficulty);
+}
+
+export function createGame(inputtedDifficulty) {
+    let cards = defineCards(inputtedDifficulty);
+    let arr = randomizePairs(cards);
+    displayPairs(arr);
 }
 
 export function displayPairs(cards) {
@@ -29,11 +39,6 @@ export function displayPairs(cards) {
       cardsHtml += `<div class='card'><p class='card-text hidden'>${cards[i]}</p></div>`;
   }
   return gameDisplay.html(cardsHtml);
-}
-
-export function listen() {
-  pageListener();
-
 }
 
 export function pageListener() {
@@ -69,5 +74,4 @@ export function pageListener() {
     }
   });
   };
-  
   
