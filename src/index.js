@@ -1,13 +1,6 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import { createGameListener, cardClickListener } from './js/interfacelogic.js';
-import $ from 'jquery';
+import { start} from './js/interface.js/index.js';
 
-$(document).ready(function() {
-  $("#difficulty-input-form").submit(function(event) {
-    event.preventDefault();
-    createGameListener();
-    cardClickListener();
-  });
-});
+window.onload = start();

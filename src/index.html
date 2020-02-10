@@ -8,29 +8,20 @@
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-          <div class="jumbotron">
+          <div id="header" class="jumbotron">
             <h1>Memory</h1>
             <p class="lead">The game of Memory. Win the game by
-               identifying all pairs of cards. Change game difficuly by 
+               identifying all pairs of cards. Change game difficulty by 
                entering the number of pairs of cards you want to play with. Games can be played with 2 - 26 pairs of cards.
             </p>
           </div>
-          <div id="main-content">
-            <form id="difficulty-input-form">
-              <div class="form-group">
-                <label for="difficulty-input">Enter # of card pairs</label>
-                <input type="text" class="form-control" id="difficulty-input">
-                <div id="error"></div>
+          <div id="game-input">
+            </div>
+            <div id="main-content">
+              <div id="game-display">
               </div>
-                <button id="difficulty-submit" class="btn btn-primary" type='submit'>Create Game</button>
-              </div>
-            </form>
+            </div>
           </div>
-          <div id="game-display">
-          </div>
-        </div>
       </div>
     </div>
   </body>

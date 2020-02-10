@@ -1,5 +1,5 @@
 {
-  "name": "my-project",
+  "name": "memory",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,7 @@
     "build": "webpack --mode development",
     "start": "npm run build & webpack-dev-server --open --mode development",
     "lint": "eslint src/*.js",
+    "lint-fix": "eslint src/** src/**/** --fix & exit 0",
     "test": "jest",
     "debug": "node --inspect node_modules/.bin/jest --runInBand"
   },
