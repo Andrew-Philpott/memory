@@ -40,7 +40,8 @@ export function createDifficultyInputFunctionality() {
   divForErrorMessage.id = 'error';
   let buttonForDifficulty = document.createElement("button");
   buttonForDifficulty.id = 'difficulty-submit';
-  buttonForDifficulty.innerHTML = 'Create Game';
+  buttonForDifficulty.classList.add("btn", "btn-primary");
+  buttonForDifficulty.innerHTML = 'Start Game';
   let gameInput = document.getElementById("game-input");
   gameInput.appendChild(labelForDifficulty);
   gameInput.appendChild(inputForDifficulty);
@@ -116,6 +117,7 @@ export function createNewGameButtonHtml() {
   let newGameButton = document.createElement("button");
   newGameButton.id = "new-game-button";
   newGameButton.innerHTML = "New Game";
+  newGameButton.classList.add("btn", "btn-primary");
   document.getElementById("game-input").appendChild(newGameButton);
   attachNewGameButtonListener();
 }
